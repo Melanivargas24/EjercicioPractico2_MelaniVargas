@@ -4,8 +4,6 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
   
     <body>
-        
-        <!-- Fragmento para agregar una reserva -->
 <section th:fragment="agregarReserva">
     <div id="agregarReserva" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
@@ -32,7 +30,6 @@
                             <label for="fechaSalida">Fecha de salida</label>
                             <input type="date" class="form-control" th:field="*{fechaSalida}" required="true"/>
                         </div>
-                        <!-- Agrega aquí los campos restantes según tu clase Reserva -->
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" type="submit">Guardar</button>
@@ -42,9 +39,6 @@
         </div>
     </div>
 </section>
-
-
-       <!-- Fragmento para mostrar el listado de reservas -->
 <section th:fragment="listadoReservas" id="reservas">
     <div class="container">
         <div class="row">
@@ -62,8 +56,7 @@
                                     <th>Número de Huéspedes</th>
                                     <th>Fecha de Ingreso</th>
                                     <th>Fecha de Salida</th>
-                                    <th>Número de cédula</th>
-                                    
+                                    <th>Número de cédula</th> 
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,7 +67,6 @@
                                     <td th:text="${#dates.format(reserva.fechaIngreso, 'dd/MM/yyyy')}"></td>
                                     <td th:text="${#dates.format(reserva.fechaSalida, 'dd/MM/yyyy')}"></td>
                                     <td th:text="${reserva.numeroCedula}"></td>
-                                    
                                 </tr>
                             </tbody>
                         </table>
@@ -87,8 +79,6 @@
         </div>
     </div>
 </section>
-
-
-    </body>
+</body>
 
 

@@ -15,7 +15,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name ="cliente")
+@Table(name ="usuario")
 public class Usuario implements Serializable{
     private static final long serialVersionUID = 1L;
     
@@ -23,15 +23,6 @@ public class Usuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long idUsuario;
-    @Column(name = "nombre")
-    private String nombre;
-    @Column(name = "apellido")
-    private String apellidos;
-    @Column(name = "correo")
-    private String correo;
-    @Column(name = "telefono")
-    private String telefono;
-    @Column(name = "nombre_usuario")
     @NotEmpty
     private String username;
     @Column(name = "contrasena")
