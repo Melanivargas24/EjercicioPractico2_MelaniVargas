@@ -57,53 +57,5 @@ public class ProjectConfig implements WebMvcConfigurer {
         return messageSource;
     }
 
-    /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
-        registry.addViewController("/index").setViewName("index");
-        registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
-    }
-
-   @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**",
-                        "/carrito/**", "/pruebas/**", "/reportes/**",
-                        "/registro/**", "/js/**","/css/**","/images/**", "/webjars/**")
-                .permitAll()
-                .requestMatchers(
-                        "/producto/nuevo", "/producto/guardar",
-                        "/producto/modificar/**", "/producto/eliminar/**",
-                        "/hotel/nuevo", "/hotel/guardar",
-                        "/hotel/modificar/**", "/hotel/eliminar/**",
-                        "/usuario/nuevo", "/usuario/guardar","/usuario/listado",
-                        "/usuario/modificar/**","/css/**","/images/**", "/usuario/eliminar/**",
-                        "/reportes/**"
-                ).hasRole("ADMINISTRADOR")
-                .requestMatchers(
-                        "/producto/listado",
-                        "/hotel/listado",
-                        "/usuario/listado"
-                ).hasAnyRole("ADMINISTRADOR", "CLIENTE")
-                .requestMatchers("/facturar/carrito")
-                .hasRole("CLIENTE")
-                )
-                .formLogin((form) -> form
-                .loginPage("/login").permitAll())
-                .logout((logout) -> logout.permitAll());
-        return http.build();
-    }
-    
-    @Autowired
-    private UserDetailsService userDetailsService;
-
-    @Autowired
-    public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
-        build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-
-    }
   
 }
