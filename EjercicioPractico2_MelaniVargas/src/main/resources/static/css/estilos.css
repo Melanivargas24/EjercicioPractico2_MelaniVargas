@@ -1,0 +1,129 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/*body {
+    font-family: sans-serif;
+    padding: 80px 20px 0;
+    background-color: bisque;
+}*/
+
+
+
+.footer {
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer .text {
+
+    font-size: 18px;
+}
+
+body {
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.video-container {
+    margin-top: 90px; /* Margen superior para separarse de la barra de navegación */
+}
+
+.navbar {
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #ff7f50; /* Cambia a un tono de naranja */
+}
+
+.custom-btn-color {
+    background-color: #004F4D;
+}
+
+.username {
+    color: white;
+}
+
+.login-link {
+    color: #fff;
+}
+
+.logout-btn {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.card-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Crear columnas automáticas, cada una de al menos 300px */
+    gap: 15px; /* Espacio entre las tarjetas */
+}
+
+.hotel-card {
+    width: 100%; /* Hacer que las tarjetas ocupen todo el ancho disponible */
+}
+
+
+
+@media (max-width: 992px) {
+    .hotel-card {
+        width: calc(50% - 15px); /* Cambiar a dos tarjetas por fila en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .hotel-card {
+        width: calc(50% - 15px); /* Cambiar a dos tarjetas por fila en pantallas aún más pequeñas */
+    }
+}
+
+@media (max-width: 576px) {
+    .hotel-card {
+        width: 100%; /* Cambiar a una tarjeta por fila en pantallas extra pequeñas */
+    }
+}
+
